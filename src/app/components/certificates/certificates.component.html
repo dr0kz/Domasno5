@@ -1,0 +1,7 @@
+<div *ngIf="certificates.length != 0; else a">
+  <h1>My certificates:</h1>
+  <h5 class="cursor-pointer hover" (click)="openPdf(cp.pdf)" *ngFor="let cp of certificates">{{cp.name}}</h5>
+</div>
+<ng-template #a>
+  <h4>You don't have any certificates</h4>
+</ng-template>

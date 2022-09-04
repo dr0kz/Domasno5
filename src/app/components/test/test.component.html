@@ -1,0 +1,54 @@
+<form [formGroup]="formGroup" *ngIf="visible; else res">
+  <div class="border border-dark border-1 p-2 mb-4">
+    <h4>Question 1</h4>
+    <div class="ms-4">
+      <input type="radio" formControlName="question1" value="1">
+      <label>True</label><br>
+      <input type="radio" formControlName="question1" value="2">
+      <label>False</label><br>
+      <input type="radio" formControlName="question1" value="3">
+      <label>False</label><br>
+    </div>
+  </div>
+  <div class="border border-dark border-1 p-2 mb-4">
+    <h4>Question 2</h4>
+    <div class="ms-4">
+      <input type="radio" formControlName="question2" value="1">
+      <label>True</label><br>
+      <input type="radio" formControlName="question2" value="2">
+      <label>False</label><br>
+      <input type="radio" formControlName="question2" value="3">
+      <label>False</label><br>
+    </div>
+  </div>
+  <div class="border border-dark border-1 p-2 mb-4">
+    <h4>Question 3</h4>
+    <div class="ms-4">
+      <input type="radio" formControlName="question3" value="1">
+      <label>True</label><br>
+      <input type="radio" formControlName="question3" value="2">
+      <label>False</label><br>
+      <input type="radio" formControlName="question3" value="3">
+      <label>False</label><br>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <button (click)="onSubmit()" type="submit" class=" btn btn-primary mb-5">Finish</button>
+  </div>
+</form>
+<ng-template #res>
+<div class="text-center">
+  <div *ngIf="passed(); else notPassed">
+    <h1>Congratulation! You passed the test with score {{result}}/100</h1>
+    Your name<input type="text" [(ngModel)]="name" placeholder="Your Name"/>
+    <br>
+    <button (click)="generateCertificate()" class="btn btn-info mt-3">Generate Certificate</button>
+  </div>
+  <ng-template #notPassed>
+    <h1>You did not passed the test. Your score: {{result}}/100</h1>
+    <button class="btn btn-warning" routerLink="/courses/{{id}}">Back to lessons</button>
+  </ng-template>
+</div>
+</ng-template>
+
